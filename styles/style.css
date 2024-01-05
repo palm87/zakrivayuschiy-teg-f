@@ -13,8 +13,247 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-
 .page {
+  background-image: repeating-linear-gradient(#d3d3d3, transparent 2px),
+    repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
+    linear-gradient(#e7e7e7, #1a1a1a);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-family-main, 'Inter-Variable'), sans-serif;
+  font-weight: var(--font-weight-main, 400);
+  font-size: 18px;
+  color: var(--font-color, #000);
+}
+/*
+
+/* Класс для задания границ разным элементам */
+.bordered {
+  border: 2px solid var(--font-color, #000);
+}
+
+/* Обложка с заголовками и меню */
+.cover {
+  background-color: var(--background-color, #fff);
+  width: clamp(375px, 100%, 700px);
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
+  gap: 20px;
+  justify-items: center;
+  margin: 102px auto 100px;
+  padding: 120px 0 17px;
+}
+
+/* Заголовок страницы */
+.header-title {
+  color: var(--font-color, #000);
+  font-family: var(--font-family-accent, 'Press Start 2P'), monospace;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+  /* display: block; */
+}
+
+/* Подзаголовок страницы */
+.header-subtitle {
+  font-family: var(--font-family-accent, 'Press Start 2P');
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-accent);
+}
+/* Меню тем */
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 6px;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+/* Кнопка с темой */
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+  font-family: var(--font-family-accent, 'Press Start 2P');
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: normal;
+  display: block;
+  position: relative;
+}
+
+/* Подчеркивание под кнопкой в фокусе */
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  scale: 0;
+  height: 3px;
+  margin-top: 5px;
+  background-color: var(--font-color, #000);
+  transition: scale 0.5s ease;
+  transform-origin: 0 0;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform-origin: 0 0;
+  scale: 1;
+  transition: scale 0.5s ease;
+}
+
+/* Неактивный пункт меню */
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Стрелка рядом с активным пунктом меню */
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  inset-inline-start: -15px;
+  animation: arrow 0.5s infinite ease-in-out alternate;
+}
+
+/* Секция со статьями */
+.content-section {
+  width: clamp(375px, 100%, 700px);
+  margin: 0 auto;
+}
+
+/* Карточка со статьей */
+.article-card {
+  display: grid;
+  grid-template-rows: min-content;
+  background-color: var(--background-color, #fff);
+}
+
+/* Заголовок карточки со статьей */
+.card-title {
+  font-weight: var(--font-weight-accent, 700);
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+/* Картинка, иллюстрирующая статью */
+.card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Текст статьи */
+.card-text {
+  color: var(--font-color, #000);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px; /* 116.667% */
+  padding: 25px 25px 0 25px;
+}
+
+/* Область с Like-кнопками под статьей */
+.buttons-area {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+  padding: 25px;
+}
+
+/* Кнопка-сердечко */
+.card__icon-button {
+  border: none;
+  background-color: transparent;
+  height: 38px;
+  cursor: pointer;
+}
+
+
+/* svg с сердечком */
+.like-icon {
+  align-self: end;
+  place-self: end;
+}
+
+/* Кнопка Like рядом с кнопкой-сердечком */
+.card__like-button {
+  background-color: transparent;
+  width: 129px;
+  height: 38px;
+  /* display: block; */
+  font-family: var(--font-family-accent, 'Press Start 2P');
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Текст на Like-кнопке */
+.button__text {
+  display: block;
+  position: relative;
+  text-transform: capitalize;
+  z-index: 3;
+  inset-block-end: 70%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 90%;
+  align-self: center;
+  transition: color 1s ease;
+}
+
+
+.card__like-button:focus {
+  box-shadow: 2px 2px 0px 0px var(--font-color);
+  transition: box-shadow .3s ease;
+}
+
+/* По наведению на кнопку должен плавно слева направо выезжать псевдоэлемент.
+Добиться этого можно двумя путями: через scale от 0 до 1 или через translate от -100% по оси X до 0.
+Во втором случае кнопке придётся задать overflow.
+Плавность здесь — 0.5s ease-in-out. */
+
+.card__like-button::before {
+  content: '';
+  transform: scaleX(0);
+  width: 100%;
+  height: 100%;
+  background-color: var(--font-color, #000);
+  transition: transform 0.7s ease-in-out;
+  transform-origin: 0 center;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+
+}
+
+.card__like-button:hover::before {
+  /* --font-color: var(--backgrounf-color); */
+  transform-origin: 0 0;
+  transform: scaleX(1);
+  transition: transform 0.7s ease-in-out;
+  /* color: var(--background-color); */
+
+}
+
+.card__like-button:hover .button__text {
+  position: relative;
+  color: var(--background-color);
+  background-blend-mode: difference;
+  z-index: 3;
+  transition: color 1s ease;
+}
+
+
+/* Искры вокруг иконки-седца */
+.sparks {
+  opacity: 0;
+}
+
+
+.card__icon-button:hover .core {
+  /* fill:  var(--font-color); */
+
+  transition: fill 0.3s linear;
+  transition-delay: 9s;
+  fill: aquamarine;
 }

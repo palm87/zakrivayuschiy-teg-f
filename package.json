@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "prettier": "^3.1.1",
+    "stylelint": "^16.1.0"
+  },
+  "name": "slozhno-sosredotochitsya",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Привет!\" && exit 1",
+    "check": "prettier --check './**/*.{html,css,js}'",
+    "format": "prettier --write './**/*.{html,css,js}'",
+    "lint": "stylelint \"**/*.css\"",
+    "lintfix": "stylelint \"**/*.css\" --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "https://github.com/palm87/zakrivayuschiy-teg-f.git"
+}
