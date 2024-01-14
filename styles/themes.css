@@ -7,21 +7,37 @@
 
 :root.theme-dark {
   --background-color: #000;
-  /* --font-style-main: 'Inter-Variable';
-  --font-style-accent: 'Press Start 2P'; */
-  --font-color: #00CC14;
-  --font-weight-main: 400;
-  --font-weight-accent: 700;
-  --heart-contour: #00CC14;
+  --font-color: #00cc14;
+  --font-blend-color: #00cc14;
+  --font-weight-main: 465;
+  --font-weight-accent: 785;
+  --heart-contour: #00cc14;
+  --gradient-color-repeat: #000;
+  --gradient-color-from: #007f0c;
+  --gradient-color-to: #004306;
+  --stroke-color: #000;
 }
 
-
 :root.theme-light {
-  --background-color: #FFF;
-  /* --font-style-main: 'Inter-Variable';
-  --font-style-accent: 'Press Start 2P'; */
+  --background-color: #fff;
   --font-color: #000;
   --font-weight-main: 400;
   --font-weight-accent: 700;
+ 
 }
 
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    --background-color: #000;
+    --font-color: #00cc14;
+    --font-blend-color: #00cc14;
+    --font-weight-main: 465;
+    --font-weight-accent: 785;
+    --heart-contour: #00cc14;
+    --gradient-color-repeat: #000;
+    --gradient-color-from: #007f0c;
+    --gradient-color-to: #004306;
+    --stroke-color: #000;
+  }
+}

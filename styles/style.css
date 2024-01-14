@@ -13,27 +13,43 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
+
 .page {
-  background-image: repeating-linear-gradient(#d3d3d3, transparent 2px),
-    repeating-linear-gradient(to right, #d3d3d3, transparent 2px),
-    linear-gradient(#e7e7e7, #1a1a1a);
+  background-image: repeating-linear-gradient(
+      var(--gradient-color-repeat, #d3d3d3) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--gradient-color-repeat, #d3d3d3) 0 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      var(--gradient-color-from, #e7e7e7 0.01%),
+      var(--gradient-color-to, #1a1a1a 100%)
+    );
   background-size: cover;
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-family-main, 'Inter-Variable'), sans-serif;
+  font-family: var(--font-family-main, Inter), sans-serif;
   font-weight: var(--font-weight-main, 400);
   font-size: 18px;
   color: var(--font-color, #000);
 }
-/*
 
-/* Класс для задания границ разным элементам */
+/* Класс для задания обводки разным элементам */
+
 .bordered {
   border: 2px solid var(--font-color, #000);
 }
 
+
+
+/* ----------------------------------HEADER------------------------------------------- */
+
 /* Обложка с заголовками и меню */
+
 .cover {
   background-color: var(--background-color, #fff);
   width: clamp(375px, 100%, 700px);
@@ -41,27 +57,30 @@
   grid-template-rows: repeat(3, min-content);
   gap: 20px;
   justify-items: center;
-  margin: 102px auto 100px;
-  padding: 120px 0 17px;
+  margin: 100px auto;
+  padding: clamp(120px, 30vw, 136px) 0 16px;
 }
 
 /* Заголовок страницы */
+
 .header-title {
   color: var(--font-color, #000);
   font-family: var(--font-family-accent, 'Press Start 2P'), monospace;
+  font-weight: 400;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   text-transform: uppercase;
-  /* display: block; */
 }
 
 /* Подзаголовок страницы */
+
 .header-subtitle {
-  font-family: var(--font-family-accent, 'Press Start 2P');
+  font-family: var(--font-family-accent, 'Press Start 2P'), monospace;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase;
   font-weight: var(--font-weight-accent);
 }
 /* Меню тем */
+
 .theme-menu__list {
   display: flex;
   flex-direction: column;
@@ -72,18 +91,23 @@
 }
 
 /* Кнопка с темой */
+
 .theme-menu__button {
   background-color: transparent;
   border: none;
   font-family: var(--font-family-accent, 'Press Start 2P');
+  font-weight: 400;
   text-transform: uppercase;
   font-size: 14px;
   line-height: normal;
   display: block;
   position: relative;
+  transition: opacity 0.3s ease;
+  
 }
 
 /* Подчеркивание под кнопкой в фокусе */
+
 .theme-menu__button::after {
   content: '';
   display: block;
@@ -96,19 +120,24 @@
 }
 
 .theme-menu__button:focus-visible::after {
-  transform-origin: 0 0;
+  /* transform-origin: 0 0; */
   scale: 1;
-  transition: scale 0.5s ease;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 /* Неактивный пункт меню */
+
 .theme-menu__button:disabled {
   opacity: 0.6;
   pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
 /* Стрелка рядом с активным пунктом меню */
+
 .theme-menu__button:disabled::before {
   content: '▶';
   position: absolute;
@@ -116,13 +145,23 @@
   animation: arrow 0.5s infinite ease-in-out alternate;
 }
 
+
+
+
+/* ----------------------------------CONTENT------------------------------------------- */
+
 /* Секция со статьями */
+
 .content-section {
   width: clamp(375px, 100%, 700px);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 /* Карточка со статьей */
+
 .article-card {
   display: grid;
   grid-template-rows: min-content;
@@ -130,38 +169,87 @@
 }
 
 /* Заголовок карточки со статьей */
+
 .card-title {
   font-weight: var(--font-weight-accent, 700);
   font-size: 18px;
   padding: 5px 10px;
 }
 
+
+/* Обертка для картинки и лейбла */
+
+.image-wrapper {
+  position: relative;
+}
+
+
 /* Картинка, иллюстрирующая статью */
+
 .card-image {
   display: block;
   width: 100%;
   height: 100%;
+  border-block-start: 2px solid var(--font-color, #000);
+  border-block-end: 2px solid var(--font-color, #000);
+  position: relative;
 }
 
+/* Лейбл в правом верхнем углу картинки */
+
+.image-label {
+  position: absolute;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  color: var(--font-color, #000);
+  font-family: var(--font-family-accent, 'Press Start 2P');
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  mix-blend-mode: hard-light; 
+  text-shadow:
+    -1px 0 var(--stroke-color, #fff),
+    0 1px var(--stroke-color, #fff),
+    1px 0 var(--stroke-color, #fff),
+    0 -1px var(--stroke-color, #fff),
+}
+
+@supports ((text-stroke: 1px var(--stroke-color, #fff)) or (-webkit-text-stroke: 1px var(--stroke-color, #fff))) {
+
+  .image-label {
+    -webkit-text-stroke: 1px var(--stroke-color, #fff);
+    text-stroke: 1px var(--stroke-color, #fff);
+    text-shadow: none;
+  }
+}
+
+
+
 /* Текст статьи */
+
 .card-text {
   color: var(--font-color, #000);
   font-size: 18px;
   font-weight: 400;
   line-height: 21px; /* 116.667% */
-  padding: 25px 25px 0 25px;
+  padding: 25px 25px 0;
+  display: flex;
+  gap: 27px;
+  flex-direction: column;
 }
 
 /* Область с Like-кнопками под статьей */
+
 .buttons-area {
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   padding: 25px;
 }
 
 /* Кнопка-сердечко */
+
 .card__icon-button {
   border: 2px solid transparent;
   background-color: transparent;
@@ -172,111 +260,124 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--font-color, #000);
-  transition: border 0.3s ease;
 }
 
-
 /* svg с сердечком */
+
 .like-icon {
-
-
 }
 
 /* Кнопка Like рядом с кнопкой-сердечком */
+
 .card__like-button {
-  background-color: transparent;
-  width: 129px;
+  width: 130px;
   height: 38px;
-  /* display: block; */
-  font-family: var(--font-family-accent, 'Press Start 2P');
-  font-size: 14px;
+}
+
+.button {
   cursor: pointer;
+  background-color: var(--background-color, #fff);
+  position: relative;
+  
 }
 
 /* Текст на Like-кнопке */
+
 .button__text {
-  display: block;
-  position: relative;
-  z-index: 3;
-  inset-block-end: 70%;
+  font-family: var(--font-family-accent, 'Press Start 2P');
   font-size: 14px;
-  font-weight: 400;
-  line-height: 90%;
-  align-self: center;
-  transition: color 1s ease;
+  z-index: 1;
+  color: var(--font-blend-color);
+  mix-blend-mode: difference;
+  
+
 }
 
-
-.card__like-button:focus {
-  box-shadow: 2px 2px 0px 0px var(--font-color);
-  transition: box-shadow .3s ease;
-}
 
 /* По наведению на кнопку должен плавно слева направо выезжать псевдоэлемент.
 Добиться этого можно двумя путями: через scale от 0 до 1 или через translate от -100% по оси X до 0.
 Во втором случае кнопке придётся задать overflow.
 Плавность здесь — 0.5s ease-in-out. */
 
-.card__like-button::before {
+.button::before {
   content: '';
   transform: scaleX(0);
   width: 100%;
   height: 100%;
   background-color: var(--font-color, #000);
   transition: transform 0.5s ease-in-out;
-  transform-origin: 0 center;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
+  transform-origin: 0 0;
+  position: absolute;
+  inset: 0;
 
 }
 
-.card__like-button:hover::before {
-  /* --font-color: var(--backgrounf-color); */
-  transform-origin: 0 0;
+.button:hover::before {
+
   transform: scaleX(1);
   transition: transform 0.5s ease-in-out;
-  /* color: var(--background-color); */
-
 }
 
-.card__like-button:hover .button__text {
-  position: relative;
-  color: var(--background-color);
-  background-blend-mode: difference;
-  z-index: 3;
-  transition: color 1s ease;
+
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--font-color);
+  transition: box-shadow 0.3s ease;
 }
 
 
 /* Искры вокруг иконки-седца */
+
 .sparks {
   opacity: 0;
 }
 
-
-.button__save {
+.button-save{
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 8px;
-  background-color: var(--background-color, #fff);
   padding: 15px 20px;
-  font-family: 'Press Start 2P';
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 90%; /* 12.6px */
-  margin: 54px auto 0 auto;
-  width: clamp(19.375rem, 2.723vw + 18.737rem, 21.188rem);
-
+  width: 340px;
+  height: 55px;
 }
 
 .floppy {
-  width: 28px;
-  height: 28px;
+  width: 21px;
+  height: 21px;
+  fill: var(--font-blend-color);
 }
 
 .floppy-dialog {
   width: 39px;
   height: 39px;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+  backdrop-filter: blur(7px);
+}
+
+dialog[open] {
+  display: grid;
+  grid-template-columns: min-content min-content;
+}
+
+.dialog-text {
+  color: var(--Themes-mainColor, #000);
+  font-family: 'Press Start 2P';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  text-transform: uppercase;
+}
+
+
+
+@media (width <= 375px) {
+
+  .floppy {
+    width: 28px;
+    height: 28px;
+  }
 }
