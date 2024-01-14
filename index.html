@@ -139,22 +139,27 @@
           onclick="window['dialog-save'].showModal();"
           aria-controls="dialog-save"
         >
-            <svg class="floppy button__text" fill="var(--font-blend-color)" viewBox="0 0 21 21">
+            <svg class="floppy-button-save button__text" fill="var(--font-blend-color)" viewBox="0 0 21 21">
             <use href="./images/floppy.svg#floppy"></use>
           </svg>
           <span class="button__text">Сохранить на память</span>
         </button>
-        <dialog id="dialog-save">
-          <svg width="21" height="21" viewBox="0 0 21 21">
-            <use class="floppy-dialog" href="./images/floppy.svg#floppy"></use>
-          </svg>
-          <span class="dialog-text">Вставьте дискету, чтобы продолжить</span>
-          <button class="button bordered"
+
+        <dialog id="dialog-save" class="dialog-window">
+          <div class="dialog-header"> 
+            <svg class="floppy-dialog-ok" viewBox="0 0 21 21">
+              <use href="./images/floppy.svg#floppy"></use>
+            </svg>
+            <span class="dialog-text">Вставьте дискету,<br> чтобы продолжить</span>
+          </div>
+         
+          <button class="button bordered button-ok"
             type="button"
             onclick="window['dialog-save'].close()"
-            class="close-button"
+            class="button button-close "
           >
-            OK
+          <span class="button__text"> OK</span>
+           
           </button>
         </dialog>
       </section>

@@ -14,4 +14,7 @@
   --gradient-color-from: #e7e7e7;
   --gradient-color-to: #1a1a1a;
   --stroke-color: #fff;
+  --floppy-size-s: 21px;
+  --floppy-size-m: 28px;
+  --floppy-size-l: 39px;
 }
