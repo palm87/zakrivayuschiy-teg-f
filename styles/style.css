@@ -228,21 +228,34 @@
   color: var(--font-color, #000);
   font-size: 18px;
   font-weight: 400;
-  line-height: 21px; /* 116.667% */
+  line-height: 21px;
   padding: 25px 25px 0;
-  display: flex;
+  /* display: flex;
   gap: 27px;
-  flex-direction: column;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, min-content);
+  gap: 25px;
+}
+
+.card-text-intro {
+  grid-column: span 4;
+}
+
+.card-text-chatgpt {
+  grid-column: span 4;
 }
 
 /* Область с Like-кнопками под статьей */
 
 .buttons-area {
+  grid-area: 3 / 4 / 4/ 5;
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 5px;
-  padding: 25px;
+  /* gap: 5px; */
+  padding-block-end: 25px;
 }
 
 /* Кнопка-сердечко */
