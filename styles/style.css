@@ -44,8 +44,6 @@
   border: 2px solid var(--font-color, #000);
 }
 
-
-
 /* ----------------------------------HEADER------------------------------------------- */
 
 /* Обложка с заголовками и меню */
@@ -103,7 +101,6 @@
   display: block;
   position: relative;
   transition: opacity 0.3s ease;
-  
 }
 
 /* Подчеркивание под кнопкой в фокусе */
@@ -145,9 +142,6 @@
   animation: arrow 0.5s infinite ease-in-out alternate;
 }
 
-
-
-
 /* ----------------------------------CONTENT------------------------------------------- */
 
 /* Секция со статьями */
@@ -166,7 +160,6 @@
   display: grid;
   grid-template-rows: min-content;
   background-color: var(--background-color, #fff);
-
 }
 
 /* Заголовок карточки со статьей */
@@ -178,13 +171,11 @@
   padding: 5px 10px;
 }
 
-
 /* Обертка для картинки и лейбла */
 
 .image-wrapper {
   position: relative;
 }
-
 
 /* Картинка, иллюстрирующая статью */
 
@@ -210,15 +201,18 @@
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
-  mix-blend-mode: hard-light; 
+  mix-blend-mode: hard-light;
   text-shadow:
     -1px 0 var(--stroke-color, #fff),
     0 1px var(--stroke-color, #fff),
     1px 0 var(--stroke-color, #fff),
-    0 -1px var(--stroke-color, #fff),
+    0 -1px var(--stroke-color, #fff);
 }
 
-@supports ((text-stroke: 1px var(--stroke-color, #fff)) or (-webkit-text-stroke: 1px var(--stroke-color, #fff))) {
+@supports (
+  (text-stroke: 1px var(--stroke-color, #fff)) or
+    (-webkit-text-stroke: 1px var(--stroke-color, #fff))
+) {
 
   .image-label {
     -webkit-text-stroke: 1px var(--stroke-color, #fff);
@@ -226,8 +220,6 @@
     text-shadow: none;
   }
 }
-
-
 
 /* Текст статьи */
 
@@ -294,10 +286,7 @@
   z-index: 1;
   color: var(--font-blend-color);
   mix-blend-mode: difference;
-  
-
 }
-
 
 /* По наведению на кнопку должен плавно слева направо выезжать псевдоэлемент.
 Добиться этого можно двумя путями: через scale от 0 до 1 или через translate от -100% по оси X до 0.
@@ -314,7 +303,6 @@
   transform-origin: 0 0;
   position: absolute;
   inset: 0;
-
 }
 
 .button:hover::before {
@@ -327,14 +315,13 @@
   transition: box-shadow 0.3s ease;
 }
 
-
 /* Искры вокруг иконки-седца */
 
 .sparks {
   opacity: 0;
 }
 
-.button-save{
+.button-save {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -345,7 +332,6 @@
 }
 
 .dialog-window {
-
   /* inline-size: 365px;
   block-size: 200px; */
 }
@@ -394,15 +380,13 @@ dialog[open] {
 
 .floppy-button-save {
   inline-size: var(--floppy-size-s, 21px);
-  block-size: var(--floppy-size-s, 21px);;
+  block-size: var(--floppy-size-s, 21px);
 }
 
 .floppy-dialog-ok {
   inline-size: var(--floppy-size-l, 39px);
-  block-size: var(--floppy-size-l, 39px);;
-
+  block-size: var(--floppy-size-l, 39px);
 }
-
 
 @media (width <= 375px) {
 
