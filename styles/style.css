@@ -169,6 +169,7 @@
   font-variation-settings: 'wght' var(--font-weight-accent, 700);
   font-size: 18px;
   padding: 5px 10px;
+  border-block-end: none;
 }
 
 /* Обертка для картинки и лейбла */
@@ -185,8 +186,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-block-start: 2px solid var(--font-color, #000);
-  border-block-end: 2px solid var(--font-color, #000);
+  /* border-block-start: 2px solid var(--font-color, #000);
+  border-block-end: 2px solid var(--font-color, #000); */
   position: relative;
 }
 
