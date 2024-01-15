@@ -125,7 +125,6 @@
 
 .theme-menu__button:hover {
   opacity: 0.6;
-
 }
 
 /* Неактивный пункт меню */
@@ -350,8 +349,6 @@
   margin: 50px auto 100px;
   /* padding-block-start: 15px; */
   padding: 15px 0;
-  
-  
 }
 
 .dialog-window {
@@ -411,7 +408,6 @@ dialog[open] {
   block-size: var(--floppy-size-l, 39px);
 }
 
-
 /*--------------------------------------- FILTERS---------------------------------------- */
 
 .grayscale_it {
@@ -434,7 +430,7 @@ dialog[open] {
   filter: hue-rotate(-90deg);
 }
 
-.sepia_it{
+.sepia_it {
   filter: sepia(80%);
 }
 
@@ -442,11 +438,9 @@ dialog[open] {
   filter: invert(0.7);
 }
 
-.filter-polly{
+.filter-polly {
   filter: invert(1) brightness(50%) saturate(60%) hue-rotate(90deg);
 }
-  
-
 
 @media (width <= 375px) {
 
@@ -458,6 +452,5 @@ dialog[open] {
   .button-save {
     flex-direction: column;
     justify-content: center;
-   
   }
 }
