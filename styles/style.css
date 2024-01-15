@@ -134,7 +134,7 @@
   pointer-events: none;
 }
 
-/* Стрелка рядом с активным пунктом меню */
+/* Стрелка рядом с неактивным пунктом меню */
 
 .theme-menu__button:disabled::before {
   content: '▶';
@@ -151,6 +151,8 @@
   inline-size: clamp(375px, 100%, 700px);
   margin: 0 auto;
 }
+
+/* Список статей */
 
 .article-list {
   display: flex;
@@ -190,8 +192,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  /* border-block-start: 2px solid var(--font-color, #000);
-  border-block-end: 2px solid var(--font-color, #000); */
   position: relative;
 }
 
@@ -200,7 +200,7 @@
 .image-label {
   position: absolute;
   inset-block-start: 25px;
-  inset-inline-end: 25px;
+  inset-inline-end: clamp(10px, 2vw, 25px);
   color: var(--font-color, #000);
   font-family: var(--font-family-accent, 'Press Start 2P');
   font-size: 14px;
@@ -232,7 +232,7 @@
   color: var(--font-color, #000);
   font-size: 18px;
   line-height: 21px;
-  padding: 25px 25px 0;
+  padding: 25px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, min-content);
@@ -258,7 +258,7 @@
   align-items: center;
   gap: 4px;
   /* padding-block-start: 3px; */
-  padding-block-end: 25px;
+  /* padding-block-end: 25px; */
 }
 
 /* Кнопка-сердечко */
@@ -351,20 +351,15 @@
   padding: 15px 0;
 }
 
-.dialog-window {
-  /* inline-size: 365px;
-  block-size: 200px; */
-}
-
 .floppy {
-  width: 21px;
-  height: 21px;
+  inline-size: var(--floppy-size-s, 21px);
+  block-size: var(--floppy-size-s, 21px);
   fill: var(--font-blend-color);
 }
 
 .floppy-dialog {
-  width: 39px;
-  height: 39px;
+  inline-size: var(--floppy-size-l, 39px);
+  block-size: var(--floppy-size-l, 39px);
 }
 
 .dialog-header {
@@ -444,13 +439,28 @@ dialog[open] {
 
 @media (width <= 375px) {
 
+  .card-title {
+    padding: 4px 10px 3px;
+  }
+
   .floppy {
-    width: 28px;
-    height: 28px;
+    inline-size: var(--floppy-size-m);
+    block-size: var(--floppy-size-m);
   }
 
   .button-save {
     flex-direction: column;
     justify-content: center;
+    /* padding: 15px 20px; */
+  }
+
+  .card-text {
+    padding: 25px;
+    border-block-start: 2px solid var(--font-color, #000);
+  }
+
+  .floppy-button-save {
+    inline-size: var(--floppy-size-m);
+    block-size: var(--floppy-size-m);
   }
 }
