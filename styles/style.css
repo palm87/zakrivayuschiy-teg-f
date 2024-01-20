@@ -271,8 +271,6 @@
   justify-content: start;
   align-items: center;
   gap: 4px;
-  /* padding-block-start: 3px; */
-  /* padding-block-end: 25px; */
 }
 
 /* Кнопка-сердечко */
@@ -288,11 +286,6 @@
 .card__icon-button:focus-visible {
   outline: 2px solid var(--font-color, #000);
 }
-
-/* svg с сердечком */
-
-/* .like-icon {
-} */
 
 /* Кнопка Like рядом с кнопкой-сердечком */
 
@@ -314,7 +307,6 @@
 .button__text {
   font-family: var(--font-family-accent, 'Press Start 2P'), fantasy;
   font-size: 14px;
-  /* z-index: 1; */
   color: var(--font-blend-color, #fff);
   mix-blend-mode: difference;
   text-align: center;
@@ -392,7 +384,6 @@ dialog[open] {
   padding: 30px;
   background-color: var(--background-color, #fff);
   inline-size: clamp(341px, 90vw, 357px);
-  /* max-block-size: 193px; */
   color: var(--font-color, #000);
 }
 
@@ -482,7 +473,5 @@ dialog[open] {
     block-size: var(--floppy-size-m, 28px);
   }
 
-  dialog[open] {
-  }
 }
 
