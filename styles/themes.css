@@ -19,10 +19,19 @@
 }
 
 :root.theme-light {
-  --background-color: #fff;
+  --font-family-main: 'Inter';
+  --font-family-accent: 'Press Start 2P';
   --font-color: #000;
+  --background-color: #fff;
   --font-weight-main: 400;
   --font-weight-accent: 700;
+  --font-blend-color: #fff;
+  --heart-contour: #000;
+  --heart-main-body: #f00;
+  --gradient-color-repeat: #d3d3d3;
+  --gradient-color-from: #e7e7e7;
+  --gradient-color-to: #1a1a1a;
+  --stroke-color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
